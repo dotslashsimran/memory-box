@@ -30,7 +30,7 @@ export function mountSettings(root: HTMLElement, hooks: SettingsHooks): void {
     sound.setAttribute('aria-pressed', String(isEnabled()));
   };
   paint();
-  const toggle = (open: boolean) => { menu.hidden = !open; gear.setAttribute('aria-expanded', String(open)); note.textContent = ''; };
+  const toggle = (open: boolean) => { if (open) paint(); menu.hidden = !open; gear.setAttribute('aria-expanded', String(open)); note.textContent = ''; };
   gear.addEventListener('click', () => toggle(!!menu.hidden));
   sound.addEventListener('click', () => { setEnabled(!isEnabled()); paint(); if (isEnabled()) sparkle(); });
   clear.addEventListener('click', async () => {

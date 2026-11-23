@@ -22,6 +22,8 @@ const CSS = `
 .mb-file{display:block;text-align:center;background:${C.butter};border:3px dashed ${C.cocoa};padding:10px;cursor:pointer;font-family:'Silkscreen',monospace;font-size:11px;margin:0}
 .mb-file input{display:none}
 .mb-prev{display:block;margin:8px auto 0;width:144px;height:144px;image-rendering:pixelated;border:3px solid ${C.cocoa};background:${C.sage}}
+.mb-prev[hidden]{display:none}
+.mb-prev[hidden]{display:none}
 .mb-row{display:flex;gap:10px;margin-top:16px}
 .mb-btn{flex:1;font-family:'Silkscreen',monospace;font-size:12px;border:3px solid ${C.cocoa};padding:10px;cursor:pointer;min-height:44px;color:${C.cocoa};background:${C.cream};box-shadow:0 3px 0 ${C.cocoa}}
 .mb-btn.go{background:${C.rose};color:${C.cream}}
