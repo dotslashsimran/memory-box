@@ -32,7 +32,7 @@ const seeds = (): Memory[] => {
     s(1, { type: 'photo', caption: 'picnic with the girls', date: '2025-05-17', photo: 'seed:picnic' }),
     s(2, { type: 'note', caption: 'a little note', date: '2025-03-02', text: 'you did great today. proud of you! drink some water and eat a snack 🍓' }),
     s(3, { type: 'ticket', caption: 'first concert!', date: '2025-07-12', seat: 'ROW 4 · SEAT 12' }),
-    s(4, { type: 'flower', caption: 'pressed from grandma\'s garden', date: '2025-04-21' }),
+    s(4, { type: 'flower', caption: 'grandma\'s garden', date: '2025-04-21' }),
     s(5, { type: 'photo', caption: 'cat nap sunday', date: '2025-02-09', photo: 'seed:cat' }),
     s(6, { type: 'ticket', caption: 'movie night', date: '2025-08-30', seat: 'ROW 7 · SEAT 3' }),
     s(7, { type: 'photo', caption: 'beach day', date: '2025-06-28', photo: 'seed:beach' }),

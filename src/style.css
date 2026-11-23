@@ -45,7 +45,7 @@ body{font-family:'Pixelify Sans','Silkscreen',monospace;color:var(--cocoa);-webk
 .card .photo{position:absolute;background-size:cover;background-position:center;background-color:var(--sage)}
 .card .cap,.card .notetext,.card .tix{position:absolute;color:var(--cocoa);font-family:'Gaegu','Pixelify Sans',cursive;font-weight:700;text-align:left;overflow:hidden}
 .card .cap{display:flex;align-items:center;justify-content:center;font-size:calc(var(--u)*5px);line-height:1;white-space:nowrap;text-overflow:ellipsis;display:block;line-height:calc(var(--u)*7px);text-align:center}
-.card .flowercap{font-size:calc(var(--u)*3.9px);line-height:calc(var(--u)*4px);white-space:normal;display:flex;align-items:center;justify-content:center;text-align:center;text-overflow:clip}
+.card .flowercap{font-size:calc(var(--u)*3.6px);line-height:calc(var(--u)*3.8px);white-space:normal;display:flex;align-items:center;justify-content:center;text-align:center;text-overflow:clip}
 .card .notetext{font-size:calc(var(--u)*5px);line-height:calc(var(--u)*var(--lh,6)*1px);word-break:break-word}
 .card .tix{display:flex;flex-direction:column;justify-content:flex-start;gap:calc(var(--u)*1px)}
 .card .tix b{font-size:calc(var(--u)*4.6px);line-height:calc(var(--u)*5px);max-height:calc(var(--u)*10px);overflow:hidden;font-weight:700}
