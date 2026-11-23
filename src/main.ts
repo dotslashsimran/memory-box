@@ -92,13 +92,13 @@ const SLOTS_L: [number, number, number][] = [
   [0.30, 0.37, -6], [0.70, 0.34, 5], [0.17, 0.60, 4], [0.84, 0.60, -5], [0.31, 0.78, -3], [0.70, 0.80, 6], [0.5, 0.2, -2], [0.08, 0.80, 5],
 ];
 const SLOTS_P: [number, number, number][] = [
-  [0.24, 0.27, -6], [0.77, 0.24, 5], [0.17, 0.43, 4], [0.84, 0.45, -5], [0.2, 0.76, -4], [0.8, 0.75, 5], [0.5, 0.12, -2], [0.5, 0.835, 3],
+  [0.2, 0.42, -5], [0.82, 0.43, 5], [0.62, 0.17, -3], [0.86, 0.30, 4], [0.18, 0.76, -4], [0.82, 0.75, 5], [0.5, 0.79, 2], [0.14, 0.60, -3],
 ];
 function computeLayout(): Lay {
   const W = window.innerWidth, H = window.innerHeight;
   const portrait = W / H < 0.85;
   const S = Math.max(3, Math.min(6, Math.floor(Math.min(W * 0.55 / 52, H * (portrait ? 0.3 : 0.38) / 62 * (portrait ? 1.3 : 1)))));
-  const U = portrait ? 3 : (W >= 1100 && H >= 760 ? 4 : 3);
+  const U = portrait ? 2 : (W >= 1100 && H >= 760 ? 4 : 3);
   const feetY = H * (portrait ? 0.7 : 0.74);
   return { W, H, S, U, portrait, boxL: Math.round(W / 2 - 26 * S), boxT: Math.round(feetY - 62 * S), slots: portrait ? SLOTS_P : SLOTS_L };
 }
@@ -189,7 +189,7 @@ async function main() {
     wall.style.cssText += `;height:${ftop}px;background-size:${160 * S}px ${90 * S}px;background-position:left bottom`;
     floor.style.cssText += `;top:${ftop}px;background-size:${160 * S}px ${30 * S}px`;
     for (const l of [lightsA, lightsB]) l.style.cssText += `;height:${16 * S}px;background-size:${160 * S}px ${16 * S}px`;
-    const wx = L.portrait ? W * 0.5 - 20 * S + W * 0.18 : W * 0.13 - 20 * S + W * 0.0;
+    const wx = L.portrait ? W * 0.03 : W * 0.13 - 20 * S + W * 0.0;
     const wy = Math.round(H * (L.portrait ? 0.1 : 0.12));
     win.style.cssText += `;left:${Math.round(wx)}px;top:${wy}px;width:${40 * S}px;height:${44 * S}px`;
     sky.style.cssText += `;left:${4 * S}px;top:${4 * S}px;width:${32 * S}px;height:${34 * S}px`;

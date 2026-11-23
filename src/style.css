@@ -46,7 +46,8 @@ body{font-family:'Pixelify Sans','Silkscreen',monospace;color:var(--cocoa);-webk
 .card .cap,.card .notetext,.card .tix{position:absolute;color:var(--cocoa);font-family:'Gaegu','Pixelify Sans',cursive;font-weight:700;text-align:left;overflow:hidden}
 .card .cap{display:flex;align-items:center;justify-content:center;font-size:calc(var(--u)*5px);line-height:1;white-space:nowrap;text-overflow:ellipsis;display:block;line-height:calc(var(--u)*7px);text-align:center}
 .card .flowercap{font-size:calc(var(--u)*3.6px);line-height:calc(var(--u)*3.8px);white-space:normal;display:flex;align-items:center;justify-content:center;text-align:center;text-overflow:clip}
-.card .notetext{font-size:calc(var(--u)*5px);line-height:calc(var(--u)*var(--lh,6)*1px);word-break:break-word}
+.card .notetext{font-size:calc(var(--u)*5px);line-height:calc(var(--u)*var(--lh,6)*1px);word-break:break-word;height:calc(var(--u)*24px)!important;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.card.big .notetext{height:calc(var(--u)*28px)!important;display:block;-webkit-line-clamp:unset}
 .card .tix{display:flex;flex-direction:column;justify-content:flex-start;gap:calc(var(--u)*1px)}
 .card .tix b{font-size:calc(var(--u)*4.6px);line-height:calc(var(--u)*5px);max-height:calc(var(--u)*10px);overflow:hidden;font-weight:700}
 .card .tix i{font-style:normal;font-family:'Silkscreen',monospace;font-size:calc(var(--u)*2.6px);line-height:calc(var(--u)*3px);color:var(--rose);margin-top:auto;padding-bottom:calc(var(--u)*1px)}
@@ -67,7 +68,7 @@ body{font-family:'Pixelify Sans','Silkscreen',monospace;color:var(--cocoa);-webk
 .sticker .plus{width:18px;height:18px;background-size:100% 100%;display:inline-block}
 .corner-btn{position:absolute;left:10px;top:10px;z-index:50;width:44px;height:44px;background:var(--cream);border:3px solid var(--cocoa);box-shadow:0 3px 0 var(--cocoa);cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
 .corner-btn svg{width:27px;height:27px}
-.viewer{position:absolute;inset:0;z-index:40;background:#5A3E36b8;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;transition:opacity .2s steps(4)}
+.viewer{position:absolute;inset:0;z-index:40;background:#5A3E36ee;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;transition:opacity .2s steps(4)}
 .viewer.on{opacity:1}
 .viewer[hidden]{display:none}
 .vslot{position:relative;display:flex;align-items:center;justify-content:center}
