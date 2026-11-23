@@ -98,6 +98,8 @@ async function run(browser, vp) {
   const page = await ctx.newPage();
   const errors = [];
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
+  page.on('response', (r) => { if (r.status() >= 400) errors.push(`HTTP ${r.status()} ${r.url()}`); });
+  page.on('requestfailed', (r) => errors.push(`requestfailed ${r.url()} ${r.failure()?.errorText}`));
   page.on('pageerror', (e) => errors.push('pageerror: ' + e.message));
   const shot = (n) => page.screenshot({ path: path.join(OUT, `${name}-${n}.png`) });
 
@@ -173,7 +175,7 @@ async function run(browser, vp) {
   await shot('5-closed-again');
   await noHScroll(page, `${name} reclosed`);
 
-  check(`${name}: zero console errors`, errors.length === 0, errors.slice(0, 3).join(' | '));
+  check(`${name}: zero console errors`, errors.length === 0, errors.slice(0, 6).join(' | '));
   await ctx.close();
 }
 
