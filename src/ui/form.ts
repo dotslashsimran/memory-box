@@ -32,7 +32,7 @@ export function openAddForm(root: HTMLElement): Promise<Memory | null> {
     const ov = document.createElement('div');
     ov.className = 'mb-ov';
     ov.innerHTML = `
-      <form class="mb-card" role="dialog" aria-label="Add a memory" novalidate>
+      <form data-testid="form" class="mb-card" role="dialog" aria-label="Add a memory" novalidate>
         <h2>✿ new memory ✿</h2>
         <div class="mb-types">${TYPES.map(x => `<button type="button" class="mb-type" data-t="${x.t}" aria-pressed="${x.t === type}"><span class="e">${x.e}</span>${x.label}</button>`).join('')}</div>
         <div data-f="photo"><label class="mb-file">📷 pick a photo<input type="file" accept="image/*"></label><canvas class="mb-prev" hidden></canvas></div>
@@ -41,7 +41,7 @@ export function openAddForm(root: HTMLElement): Promise<Memory | null> {
         <div data-f="note" hidden><label for="mb-text">YOUR NOTE</label><textarea id="mb-text" maxlength="200" placeholder="write something sweet…"></textarea></div>
         <div data-f="ticket" hidden><label for="mb-seat">SEAT</label><input id="mb-seat" type="text" maxlength="24" placeholder="ROW 4 · SEAT 12"></div>
         <div class="mb-err" role="alert"></div>
-        <div class="mb-row"><button type="button" class="mb-btn" data-a="cancel">CANCEL</button><button type="submit" class="mb-btn go">TUCK IN ♥</button></div>
+        <div class="mb-row"><button type="button" class="mb-btn" data-a="cancel">CANCEL</button><button type="submit" data-testid="submit" class="mb-btn go">TUCK IN ♥</button></div>
       </form>`;
     root.appendChild(ov);
     const q = <T extends Element>(s: string) => ov.querySelector<T>(s)!;
