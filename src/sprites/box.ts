@@ -72,10 +72,12 @@ export function boxBody(): Sprite {
 }
 
 /** Lid animation, 7 frames, 52x32 each (box is 48 wide: ribbon centres line up at +2).
- *  Place so the canvas' bottom edge sits 2px below boxBody's top (lid skirt overlaps). Hinge (back-top edge) is row 17. */
+ *  Place so the canvas' bottom edge sits 2px below boxBody's top (lid skirt overlaps). Closed hinge row 17; open frames rise from row 21 (the mouth back rim). */
 export function lidFrames(): Sprite[] {
-  const angles = [0, 17, 34, 62, 100, 140, 180];
-  return angles.map(a => lid(a * Math.PI / 180).toSprite());
+  const closing = [0, 17, 34].map(a => lid(a * Math.PI / 180).toSprite());
+  // lid swinging up and leaning back behind the box (hinge on the mouth's back rim, row 22)
+  const open = ([[6, 52], [11, 50], [15, 47], [18, 44]] as [number, number][]).map(([h, tw]) => leaning(h, tw).toSprite());
+  return [...closing, ...open];
 }
 
 function bow(g: Grid, cx: number, by: number) {
@@ -92,6 +94,30 @@ function bow(g: Grid, cx: number, by: number) {
   // knot
   g.box(cx - 2, top + 2, 4, 6, C.butter, C.cocoa, false);
   g.px(cx - 1, top + 3, T.butterLight); g.vline(cx, top + 5, 2, T.butterDeep);
+}
+
+/** Open lid seen from the front, leaning back: same milk/butter/cocoa as the closed lid, trapezoid (far edge narrower). */
+function leaning(h: number, topW: number): Grid {
+  const W = 52, bottom = 21, top = bottom - h + 1;
+  const g = new Grid(W, 32);
+  for (let r = 0; r < h; r++) {
+    const w = Math.round(topW + (W - topW) * (h > 1 ? r / (h - 1) : 1));
+    const x0 = Math.floor((W - w) / 2), y = top + r;
+    g.hline(x0, y, w, C.cocoa);
+    if (r === 0 || r === h - 1) continue;
+    g.hline(x0 + 1, y, w - 2, r <= 2 ? T.milkDeep : C.milk);       // thick lid rim along the far edge
+    if (r === 3) g.hline(x0 + 1, y, w - 2, T.milkLight);
+    if (r > 3 && (r + 1) % 4 === 0) { g.px(x0 + 3, y, T.milkLight); g.px(x0 + w - 4, y, T.milkLight); }
+  }
+  // ribbon band down the middle, same as closed lid
+  for (let y = top; y <= bottom; y++) {
+    if (y === top) { g.hline(23, y, 6, C.cocoa); continue; }
+    g.px(23, y, C.cocoa); g.px(28, y, C.cocoa);
+    g.hline(24, y, 4, y <= top + 2 ? T.butterDeep : C.butter);
+    if (y > top + 2) g.px(24, y, T.butterLight);
+  }
+  g.hline(23, bottom, 6, C.cocoa);
+  return g;
 }
 
 function lid(a: number): Grid {
