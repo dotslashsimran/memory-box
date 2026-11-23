@@ -14,7 +14,16 @@ const CSS = `
 .mb-types{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
 .mb-type{font:inherit;font-family:'Silkscreen',monospace;font-size:10px;background:${C.cream};color:${C.cocoa};border:3px solid ${C.cocoa};padding:8px 2px;cursor:pointer;min-height:44px;box-shadow:0 3px 0 ${C.cocoa}}
 .mb-type[aria-pressed=true]{background:${C.milk};transform:translateY(2px);box-shadow:0 1px 0 ${C.cocoa}}
-.mb-type .e{display:block;font-size:18px;margin-bottom:2px}
+.mb-type .e{display:block;margin:0 auto 4px;width:36px;height:36px}
+.mb-type .px{width:36px;height:36px;image-rendering:pixelated;display:block}
+.mb-ov ::selection{background:${C.milk};color:${C.cocoa}}
+.mb-date{position:relative}
+.mb-date input{position:absolute;inset:0;opacity:0;pointer-events:none;min-height:0}
+.mb-dd{display:flex;gap:8px;justify-content:center;border:3px solid ${C.cocoa};background:${C.cream};padding:4px 6px}
+.mb-dp{display:flex;flex-direction:column;align-items:center;flex:1}
+.mb-dp b{font-family:'Silkscreen',monospace;font-size:14px;font-weight:400;padding:2px 0}
+.mb-dp button{font:inherit;font-size:10px;line-height:1;background:${C.milk};color:${C.cocoa};border:2px solid ${C.cocoa};width:100%;min-height:22px;cursor:pointer;padding:0}
+.mb-dp button:active{background:${C.rose}}
 .mb-card label{display:block;font-family:'Silkscreen',monospace;font-size:10px;margin:10px 0 4px}
 .mb-card input[type=text],.mb-card input[type=date],.mb-card textarea{width:100%;box-sizing:border-box;font-family:'Gaegu','Pixelify Sans',cursive;font-size:20px;background:#fff;background:${C.cream};color:${C.cocoa};border:3px solid ${C.cocoa};padding:6px 8px;border-radius:0;outline:none;min-height:44px}
 .mb-card input:focus,.mb-card textarea:focus{background:${C.butter}66;border-color:${C.rose}}
